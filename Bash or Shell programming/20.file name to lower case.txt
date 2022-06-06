@@ -1,0 +1,13 @@
+echo enter file name
+read file
+ 
+if [ -f $file ]
+then
+       lowercase=$(echo $file | tr '[A-Z]' '[a-z]'])
+       /bin/mv $file $lowercase
+      
+else
+       echo There is no such $file file
+       exit 1
+ 
+fi

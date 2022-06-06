@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file=1.txt
+
+echo "Number of vowels in the file are `tr -cd 'aeiouAEIOU' <$file | wc -c`"
+echo "Number of spaces in the file are `tr -cd ' ' <$file | wc -c`"
+echo "Number of characters are $(wc -c < "$file")"
+echo "Number of symbols in the file are `tr -cd '!@#$%^&*+=(){}[]?/-_' <$file | wc -c`"
+echo "Number of lines are $(wc -l < "$file")"

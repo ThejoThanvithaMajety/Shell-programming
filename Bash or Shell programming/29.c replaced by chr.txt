@@ -1,0 +1,4 @@
+read -p "Enter any String: " str
+echo "${str//c/chr }"
+echo -n "Number of replacements: "
+echo "$str" | awk '{print gsub(/c/," ")}'

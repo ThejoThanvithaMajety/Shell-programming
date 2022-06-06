@@ -1,0 +1,23 @@
+read -p "ENTER First File: " file1
+read -p "ENter Second File: " file2
+read -p "Enter Third File: " file3
+out="comb.txt"
+count=0
+if [ ! -f $file1 ]
+then
+echo "$file1 not a file!"
+exit
+fi
+if [ ! -f $file2 ]
+then
+echo "$file2 not a file!"
+exit
+fi
+if [ ! -f $file3 ]
+then
+echo "$file3 not a file!"
+exit
+fi
+cat $file1 $file2 $file3 >> $out
+count=$(cat $out | wc -w)
+echo "$count words written to $out"

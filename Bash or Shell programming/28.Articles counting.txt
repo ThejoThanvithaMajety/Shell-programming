@@ -1,0 +1,28 @@
+#!/bin/bash
+
+read -p "Enter the file name: " file
+
+a=0
+an=0
+the=0
+
+while read line
+do
+	for w in $line  # to iterate over each word in the line
+	do
+		temp="$(echo $w | tr '[A-Z]' '[a-z]')"    #to make all the chars in lower case
+		if [ $temp == "a" ]                       # comparing for "a" 
+		then
+			a=`expr $a + 1`
+		elif [ $temp == "an" ]                # comparing for "an" 
+		then
+			an=`expr $an + 1`
+		elif [ $temp == "the" ]                # comparing for "the" 
+		then
+			the=`expr $the + 1`
+		fi
+	done
+done<$file
+echo "a - $a"
+echo "an - $an"
+echo "the - $the"

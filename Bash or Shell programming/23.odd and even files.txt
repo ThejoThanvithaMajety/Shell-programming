@@ -1,0 +1,29 @@
+read -p "ENTER FILE NAME: " file
+counter=0
+eout="evenfile.txt" # even file name
+oout="oddfile.txt" # odd file name
+ 
+if [ ! -f $file ]
+then
+  echo "$file not a file"
+  exit
+fi
+ 
+while read line
+do
+  # find out odd or even line number
+  isEvenNo=$( expr $counter % 2 )
+ 
+  if [ $isEvenNo -ne 0 ]
+  then
+    # even match
+    echo $line >> $eout
+  else
+    # odd match
+    echo $line >> $oout
+  fi
+  # increase counter by 1
+  (( counter ++ ))
+done < $file
+echo "Even file - $eout"
+echo "Odd file - $oout"
